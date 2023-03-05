@@ -1,3 +1,5 @@
+import javax.management.RuntimeErrorException;
+
 public class Engine {
 
     private FuelType fuelType;
@@ -28,10 +30,10 @@ public class Engine {
     }
     public void go(){
         if (this.currentFuelLevel==0){
-            throw new RuntimeException("Can't go. Fuel Level is at 0.");
+            throw new RuntimeErrorException(null, "Can't go. Fuel Level is at 0.");
         }
         if ((this.currentFuelLevel-this.maxFuelLevel/4)<0){
-            throw new RuntimeException("Can't go. Fuel Level is too low to go.");
+            throw new RuntimeErrorException(null, "Can't go. Fuel Level is too low.");
         }
         else{
             this.currentFuelLevel=this.currentFuelLevel-this.maxFuelLevel/4;
