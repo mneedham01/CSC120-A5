@@ -3,7 +3,7 @@ import javax.management.RuntimeErrorException;
 /*
  * A constructor for an engine, methods for getting fuelType, getting currentFuelLevel, getting maxFuel Level,
  * Refueling, Going, and a main method for testing. 
- * @param: FuelType, maxFuelLevel
+ * @param: FuelType fuelType, double maxFuelLevel
  */
 public class Engine {
 
