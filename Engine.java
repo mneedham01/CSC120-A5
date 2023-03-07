@@ -69,15 +69,21 @@ public class Engine {
 
 
         //Create another passenger, have it board a car, print manifest 
-        Passenger second=new Passenger("Greta");
+        Passenger second=new Passenger("Poppy");
         second.boardCar(myTrain.getCar(3));
         myTrain.printManifest();
 
         //Try to add two more passengers
         first.boardCar(myTrain.getCar(3));
         myTrain.printManifest();
-        Passenger third=new Passenger("Lily");
+        Passenger third=new Passenger("Leo");
         third.boardCar(myTrain.getCar(3));
+
+        //Try to take out Maggie and then Lily 
+        myTrain.getCar(3).removePassenger(first);
+        myTrain.getCar(3).printManifest();
+        myTrain.getCar(3).removePassenger(third);
+
 
     }
 
