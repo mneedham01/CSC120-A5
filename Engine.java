@@ -1,7 +1,9 @@
 import javax.management.RuntimeErrorException;
 
 /*
- * 
+ * A constructor for an engine, methods for getting fuelType, getting currentFuelLevel, getting maxFuel Level,
+ * Refueling, Going, and a main method for testing. 
+ * @param: FuelType, maxFuelLevel
  */
 public class Engine {
 
@@ -20,7 +22,7 @@ public class Engine {
     public FuelType getFuelType(){
         return this.fuelType;
     }
-    public double getCurrentFuelType(){
+    public double getCurrentFuelLevel(){
         return this.currentFuelLevel;
     }
     public double getMaxFuelLevel(){
@@ -28,9 +30,15 @@ public class Engine {
     }
 
     //methods
+    /*
+     * Refuels the engine; restores currentFuelLevel to the maxFuelLevel
+     */
     public void refuel(){
         this.currentFuelLevel=this.maxFuelLevel;
     }
+    /*
+     * If the engine has more than a quarter level fuel, it takes away a quarter level of fuel.  
+     */
     public void go(){
         if (this.currentFuelLevel==0){
             throw new RuntimeErrorException(null, "Can't go. Fuel Level is at 0.");
@@ -44,6 +52,10 @@ public class Engine {
         }
     }
 
+    /*
+     * Tests the Engine.java, Car.java, Passenger.java, and Train.java files.
+     * @param:  String[] args
+     */
     public static void main(String[] args) {
         //Testing Engine.java
         Engine myEngine = new Engine(FuelType.ELECTRIC, 100.0);
