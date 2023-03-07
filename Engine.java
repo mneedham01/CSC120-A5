@@ -42,7 +42,7 @@ public class Engine {
     }
 
     public static void main(String[] args) {
-        //Construct an Engine
+        //Testing Engine.java
         Engine myEngine = new Engine(FuelType.ELECTRIC, 100.0);
         try {
             while (true) {
@@ -52,38 +52,37 @@ public class Engine {
             System.err.println(e.getMessage()); // Out of fuel
         }
 
-        //Construct train 
-        Train myTrain= new Train(FuelType.ELECTRIC, 100.0,5,2);
+        //Testing Car.java
+        Car myCar= new Car(100);
+        System.out.println("This is my capacity: "+myCar.getCapacity());
+        System.out.println("This is the amount of seats remaining: "+myCar.seatsRemaining());
+        Passenger first= new Passenger("Maggie");
+        myCar.addPassenger(first);
+        myCar.printManifest();
+        myCar.removePassenger(first);
+        myCar.printManifest();
 
-        //Get max capacity, seats remaining, and print manifest        
+        //Testing Passenger.java
+        Passenger second=new Passenger("Poppy");
+        second.boardCar(myCar);
+        myCar.printManifest();
+        second.getOffCar(myCar);
+        myCar.printManifest();
+
+        //Testing Train.java
+        Train myTrain= new Train(FuelType.ELECTRIC, 100.0,5,2);
         System.out.println("This is my max capacity: "+myTrain.getMaxCapacity());
         System.out.println("These are the seats remaining: "+ myTrain.seatsRemaining());
         myTrain.printManifest();
-
-        //Create new passenger, add to Train, print manifest, remove passenger 
-        Passenger first= new Passenger("Maggie");
         myTrain.getCar(3).addPassenger(first);
         myTrain.printManifest();
         myTrain.getCar(3).removePassenger(first);
         myTrain.printManifest();
-
-
-        //Create another passenger, have it board a car, print manifest 
-        Passenger second=new Passenger("Poppy");
-        second.boardCar(myTrain.getCar(3));
+        myTrain.getCar(3).addPassenger(second);
         myTrain.printManifest();
-
-        //Try to add two more passengers
-        first.boardCar(myTrain.getCar(3));
-        myTrain.printManifest();
+        myTrain.getCar(3).addPassenger(first);
         Passenger third=new Passenger("Leo");
-        third.boardCar(myTrain.getCar(3));
-
-        //Try to take out Maggie and then Lily 
-        myTrain.getCar(3).removePassenger(first);
-        myTrain.getCar(3).printManifest();
-        myTrain.getCar(3).removePassenger(third);
-
+        myTrain.getCar(3).addPassenger(third);//Should cause error
 
     }
 
