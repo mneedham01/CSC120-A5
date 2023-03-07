@@ -24,7 +24,7 @@ public class Train {
         return this.engine;
     }
 
-    public Object getCar(int i){
+    public Car getCar(int i){
         return this.cars.get(i);
     }
 
@@ -47,12 +47,9 @@ public class Train {
     public void printManifest(){
         System.out.println("These are the passengers in the train: ");
         for (Car i: this.cars){
-            System.out.println(i.printManifest());
+            i.printManifest();
         }
     }
-
-    public static void main()
-
 }
 
 
