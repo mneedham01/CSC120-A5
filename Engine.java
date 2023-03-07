@@ -50,6 +50,20 @@ public class Engine {
         } catch (Exception e) {
             System.err.println(e.getMessage()); // Out of fuel
         }
+
+        Train myTrain= new Train(FuelType.ELECTRIC, 100.0,5,100);
+
+        System.out.println("This is my max capacity: "+myTrain.getMaxCapacity());
+        System.out.println("These are the seats remaining: "+ myTrain.seatsRemaining());
+        myTrain.printManifest();
+
+        Passenger p= new Passenger("Maggie");
+        myTrain.getCar(3).addPassenger(p);
+        myTrain.printManifest();
+        myTrain.getCar(3).removePassenger(p);
+
+        
+
     }
 
 }
