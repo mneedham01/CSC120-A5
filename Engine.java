@@ -81,6 +81,7 @@ public class Engine {
         myTrain.getCar(3).addPassenger(second);
         myTrain.printManifest();
         myTrain.getCar(3).addPassenger(first);
+        myTrain.printManifest();
         Passenger third=new Passenger("Leo");
         myTrain.getCar(3).addPassenger(third);//Should cause error
 
