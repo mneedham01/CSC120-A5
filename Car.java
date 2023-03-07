@@ -62,6 +62,9 @@ public class Car {
             this.passengersOnboard.remove(this.passengersOnboard.indexOf(p));
         }
     }
+    /*
+     * Prints out a list of passengers in the car. 
+     */
     //print manifest
     public void printManifest(){
         if (this.passengersOnboard.size()==0){
