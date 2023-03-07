@@ -22,7 +22,7 @@ public class Passenger {
             System.err.println(e.getMessage());
         }
     }
-    public void printName(){
-        System.out.println(this.name);
+    public String getName(){
+        return this.name;
     }
 }
