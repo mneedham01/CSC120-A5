@@ -3,54 +3,56 @@ import java.util.ArrayList;
 public class Train {
 
     private final Engine engine;
-    private ArrayList cars; 
+    private ArrayList<Car> cars; 
     public int max_count;
     public int seat_count;
 
     public Train(FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity){
-        this.fuelCapacity=fuelCapacity;
-        this.passengerCapacity=passengerCapacity;  
 
-        this.Engine=Engine(fuelType, fuelCapacity);
+        this.engine=new Engine(fuelType, fuelCapacity);
 
-       // for (Object i: cars){
-            //cars.add(i);
-       // }
+        this.cars= new ArrayList<Car>();
+
+        for (int i = 0; i < nCars; i++) {
+            Car c= new Car(passengerCapacity);
+            this.cars.add(c);
+          }
 
     }
     
     public Engine getEngine(){
-        return this.Engine();
+        return this.engine;
     }
 
     public Object getCar(int i){
-        return cars.get(i);
+        return this.cars.get(i);
     }
 
     public int getMaxCapacity(){
         max_count=0;
-        for (Object i:cars){
-            max_count += cars.get(i).getCapacity();
+        for (Car i: this.cars){
+            max_count +=i.getCapacity();
         }
         return max_count;
     }
 
     public int seatsRemaining(){
         seat_count=0;
-        for (Object i: cars){
-            seat_count+=cars.get(i).seatsRemaining();
+        for (Car i: this.cars){
+            seat_count+=i.seatsRemaining();
         }
         return seat_count;
     }
 
     public void printManifest(){
         System.out.println("These are the passengers in the train: ");
-        for (Object i:cars){
-            System.out.println(cars.get(i).printManifest());
+        for (Car i: this.cars){
+            System.out.println(i.printManifest());
         }
     }
 
-
-
+    public static void main()
 
 }
+
+
