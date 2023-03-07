@@ -5,13 +5,13 @@ import javax.management.RuntimeErrorException;
 public class Car {
 
     //initialize variables
-    private ArrayList passengersOnboard;
+    private ArrayList<Passenger> passengersOnboard;
     private int maxCapacity;
 
     //constructor
     public Car(int maxCapacity){
         this.maxCapacity= maxCapacity;
-        ArrayList passengersOnboard= new ArrayList();
+        this.passengersOnboard= new ArrayList <Passenger>();
     }
 
     //accessor like methods
@@ -19,11 +19,11 @@ public class Car {
         return this.maxCapacity;
     }
     public int seatsRemaining(){
-        if (passengersOnboard.isEmpty()){
+        if (this.passengersOnboard.isEmpty()){
             return this.maxCapacity;
         }
         else{
-            return this.maxCapacity-passengersOnboard.size();
+            return this.maxCapacity-this.passengersOnboard.size();
         }
     }
 
@@ -33,29 +33,27 @@ public class Car {
             throw new RuntimeErrorException(null, "No more seats remaining. Can't add passenger.");
         }
         else{
-            passengersOnboard.add(p);
+            this.passengersOnboard.add(p);
         }
     }
     //remove a passenger
     public void removePassenger(Passenger p){
-        if (!passengersOnboard.contains(p)){
+        if (!this.passengersOnboard.contains(p)){
             throw new RuntimeErrorException(null, "Passenger is not on the car.");
         }
         else{
-            passengersOnboard.remove(passengersOnboard.indexOf(p));
+            this.passengersOnboard.remove(this.passengersOnboard.indexOf(p));
         }
     }
     //print manifest
     public void printManifest(){
-        if (passengersOnboard.size()==0){
+        if (this.passengersOnboard.size()==0){
             System.out.println("This car is EMPTY!");
         }
         else{
-            for (Object i: passengersOnboard){
-                System.out.println(i);
+            for (Passenger i: this.passengersOnboard){
+               i.printName();
             }
         }
     }
-
-
 }
