@@ -19,11 +19,11 @@ public class Car {
         return this.maxCapacity;
     }
     public int seatsRemaining(){
-        if (passengersOnboard.size()>0){
-            return this.maxCapacity-passengersOnboard.size();
+        if (passengersOnboard.isEmpty()){
+            return this.maxCapacity;
         }
         else{
-            return this.maxCapacity;
+            return this.maxCapacity-passengersOnboard.size();
         }
     }
 
