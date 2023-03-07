@@ -43,6 +43,13 @@ public class Train {
         return seat_count;
     }
 
+    public void printManifest(){
+        System.out.println("These are the passengers in the train: ");
+        for (Object i:cars){
+            System.out.println(cars.get(i).printManifest());
+        }
+    }
+
 
 
 
