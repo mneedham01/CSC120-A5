@@ -2,6 +2,10 @@ import java.util.ArrayList;
 
 import javax.management.RuntimeErrorException;
 
+/*
+ * Car constructor, has methods to getCapacity, seatsRemaining, add and remove a passenger, and print a list of passengers onboard.
+ * @param: int maxCapacity
+ */
 public class Car {
 
     //initialize variables
@@ -15,9 +19,18 @@ public class Car {
     }
 
     //accessor like methods
+    /*
+     * Returns the max capacity of a car.
+     * @return: this.maxCapacity
+     */
     public int getCapacity(){
         return this.maxCapacity;
     }
+
+    /*
+     * Returns the number of seats remaining. If the car is empty, returns maxCapacity. 
+     * @return:remaining seats.
+     */
     public int seatsRemaining(){
         if (this.passengersOnboard.isEmpty()){
             return this.maxCapacity;
@@ -27,7 +40,9 @@ public class Car {
         }
     }
 
-    //add a passenger
+    /*
+     * Add a passenger, if there are seats remaining. 
+     */
     public void addPassenger(Passenger p){
         if (seatsRemaining()==0){
             throw new RuntimeErrorException(null, "No more seats remaining. Can't add passenger.");
@@ -36,7 +51,9 @@ public class Car {
             this.passengersOnboard.add(p);
         }
     }
-    //remove a passenger
+    /*
+     * Remove a passenger, if it is on the train. 
+     */
     public void removePassenger(Passenger p){
         if (!this.passengersOnboard.contains(p)){
             throw new RuntimeErrorException(null, "Passenger is not on the car.");
