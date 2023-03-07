@@ -55,7 +55,7 @@ public class Car {
                 String name=this.passengersOnboard.get(i).getName();
                 System.out.println(name+", ");
               }
-            System.out.println(name);
+            System.out.println(this.passengersOnboard.get(i).getName());
         }
     }
 }
