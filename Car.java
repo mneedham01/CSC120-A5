@@ -19,7 +19,12 @@ public class Car {
         return this.maxCapacity;
     }
     public int seatsRemaining(){
-        return this.maxCapacity-passengersOnboard.size();
+        if (passengersOnboard.size()>0){
+            return this.maxCapacity-passengersOnboard.size();
+        }
+        else{
+            return this.maxCapacity;
+        }
     }
 
     //add a passenger
