@@ -51,9 +51,11 @@ public class Car {
             System.out.println("This car is EMPTY!");
         }
         else{
-            for (Passenger i: this.passengersOnboard){
-               i.printName();
-            }
+            for (int i = 0; i < this.passengersOnboard.size()-1; i++) {
+                String name=this.passengersOnboard.get(i).getName();
+                System.out.println(name+", ");
+              }
+            System.out.println(name);
         }
     }
 }
