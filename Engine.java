@@ -56,17 +56,17 @@ public class Engine {
         Car myCar= new Car(100);
         System.out.println("This is my capacity: "+myCar.getCapacity());
         System.out.println("This is the amount of seats remaining: "+myCar.seatsRemaining());
-        Passenger first= new Passenger("Maggie");
-        myCar.addPassenger(first);
+        Passenger firstPassenger= new Passenger("Maggie");
+        myCar.addPassenger(firstPassenger);
         myCar.printManifest();
-        myCar.removePassenger(first);
+        myCar.removePassenger(firstPassenger);
         myCar.printManifest();
 
         //Testing Passenger.java
-        Passenger second=new Passenger("Poppy");
-        second.boardCar(myCar);
+        Passenger secondPassenger=new Passenger("Poppy");
+        secondPassenger.boardCar(myCar);
         myCar.printManifest();
-        second.getOffCar(myCar);
+        secondPassenger.getOffCar(myCar);
         myCar.printManifest();
 
         //Testing Train.java
@@ -74,16 +74,16 @@ public class Engine {
         System.out.println("This is my max capacity: "+myTrain.getMaxCapacity());
         System.out.println("These are the seats remaining: "+ myTrain.seatsRemaining());
         myTrain.printManifest();
-        myTrain.getCar(3).addPassenger(first);
+        myTrain.getCar(3).addPassenger(firstPassenger);
         myTrain.printManifest();
-        myTrain.getCar(3).removePassenger(first);
+        myTrain.getCar(3).removePassenger(firstPassenger);
         myTrain.printManifest();
-        myTrain.getCar(3).addPassenger(second);
+        myTrain.getCar(3).addPassenger(secondPassenger);
         myTrain.printManifest();
-        myTrain.getCar(3).addPassenger(first);
+        myTrain.getCar(3).addPassenger(firstPassenger);
         myTrain.printManifest();
-        Passenger third=new Passenger("Leo");
-        myTrain.getCar(3).addPassenger(third);//Should cause error
+        Passenger thirdPassenger=new Passenger("Leo");
+        myTrain.getCar(3).addPassenger(thirdPassenger);//Should cause error
 
     }
 
